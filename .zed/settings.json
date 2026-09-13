@@ -1,0 +1,13 @@
+{
+  "lsp": {
+    "clangd": {
+      "binary": {
+        "path": "/usr/bin/clangd",
+        "arguments": [
+          "--query-driver=/usr/bin/g++",
+          "--query-driver=/usr/bin/clang++"
+        ]
+      }
+    }
+  }
+}
