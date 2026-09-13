@@ -30,20 +30,31 @@ namespace Render
             // local namespace function
             int Init()
             {
-                std::cout << a + 10 << std::endl;
                 return 0;
             }
-            Draw& operator<<(int&& rhs)
+            friend std::ostream& operator>>(std::ostream& os,const Render::Draw& rhs)
+            {
+                os << rhs.a;
+                return os;
+            }
+             Draw& operator<<(int&& rhs)
             {
                 std::cout << rhs << std::endl;
                 return *this;
             }
+             Draw& operator=(int&& rhs)
+            {
+                std::cout << rhs  + this->a << std::endl;
+                return *this;
+            }
     };
 }
+
+
 int main()
 {
     Render::Draw A(10);
-    A.Init();
-    A << 10;
+    A = 10;
+    A << 2010 << 10 << 100;
     return 0;
 }
